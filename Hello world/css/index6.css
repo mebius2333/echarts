@@ -1,0 +1,32 @@
+h4 {
+    font-size: 3rem;
+    letter-spacing: 5px;
+    color: #0e3742;
+    text-align: center;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
+    line-height: 0.80em;
+    outline: none;
+    /*边框外围的线*/
+    animation: animate 2s linear infinite;
+}
+
+/*创作动画*/
+@keyframes animate {
+
+    0%,
+    18%,
+    20%,
+    50.1%,
+    60%,
+    65.1%,
+    80%,
+    90.1%,
+    92% {
+        color: #fff;
+        text-shadow: 0 0 10px #03bcf4,
+            0 0 10px #03bcf4,
+            0 0 20px #03bcf4,
+            0 0 40px #03bcf4,
+            0 0 80px #03bcf4;
+    }
+}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据可视化</title>
+    <link rel="stylesheet" href="./css/indexx.css">
+    <link rel="stylesheet" href="./css/index6.css">
+</head>
+
+<body>
+    <header>
+        <h4 id="w1">数据可视化-Echarts</h4>
+        <div class="showTime"></div>
+        <script>
+            let t = null;
+            // 清空t的内存占用
+            t = setTimeout(time, 1000);//開始运行
+            function time() {
+                clearTimeout(t);//清除定时器
+                dt = new Date();
+                let y = dt.getFullYear();
+                let mt = dt.getMonth() + 1;
+                let day = dt.getDate();
+                let h = dt.getHours();//获取时
+                let m = dt.getMinutes();//获取分
+                let s = dt.getSeconds();//获取秒
+                document.querySelector(".showTime").innerHTML = '当前时间：' + y
+                    + "年" + mt + "月" + day + "-" + h + "时" + m + "分" + s + "秒";
+                t = setTimeout(time, 1000); //设定定时器，循环运行     
+            }
+        </script>
+    </header>
+    <section class="mainbox">
+        <!-- 主体内容,更有语义 -->
+        <div class="column">
+            <div  onclick="FormShow()">
+            <div class="panel bar">
+                <h2>柱形图-就业行业
+                  
+                        <div class="chart">
+                        </div>
+                        <div class="panel-footer">
+                        </div>
+            </div>
+            </div>
+            <div  onclick="FormShow1()">
+            <div class="panel line">
+                <h2>折线图-人员变化
+                
+                    <h2>
+                        <div class="chart">图表</div>
+                        <div class="panel-footer"></div>
+            </div>
+            </div>
+            <div  onclick="FormShow2()">
+            <div class="panel pie">
+                <h2>饼形图-年龄分布
+                   
+                    <h2>
+                        <div class="chart"></div>
+                        <div class="panel-footer"></div>
+            </div>
+        </div>
+        </div>
+        <div class="ck">
+           <div class="top">
+            就业行业数 
+            <span onclick="FormHide()" class="c1">X</span>        
+            <span class="q1">
+                <input type="button" value="柱形图1" class="r1" onclick="Wc1()" style="background-color:blueviolet;color: aqua ;">
+                <input type="button" value="折线图1" class="r1" onclick="Wc2()" style="background-color:blueviolet;color: aqua ;">
+                <input type="button" value="饼形图1" class="r1" onclick="Wc3()" style="background-color:blueviolet;color: aqua ;">
+                <input type="button" value="柱形图2" class="r1" onclick="Wc4()" style="background-color:blueviolet;color: aqua ;">
+                <input type="button" value="折线图2" class="r1" onclick="Wc5()" style="background-color:blueviolet;color: aqua ;">
+                <input type="button" value="饼形图2" class="r1" onclick="Wc6()" style="background-color:blueviolet;color: aqua ;">
+            </span> 
+            </div>
+            <div class="new">
+            </div>
+        </div>
+        <div class="ck1">
+            <div class="top1">
+                人员变化波动
+                <span onclick="FormHide1()" class="c1">X</span>
+                <span class="q1">
+                    <input type="button" value="柱形图1" class="r1" onclick="Wc1()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="折线图1" class="r1" onclick="Wc2()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="饼形图1" class="r1" onclick="Wc3()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="柱形图2" class="r1" onclick="Wc4()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="折线图2" class="r1" onclick="Wc5()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="饼形图2" class="r1" onclick="Wc6()" style="background-color:blueviolet;color: aqua ;">
+                </span> 
+            </div>
+            <div class="new1"></div>
+        </div>
+        <div class="ck2">
+            <div class="top2">
+                搜索引擎占比
+                <span onclick="FormHide2()" class="c1">X</span>
+                <span class="q1">
+                    <input type="button" value="柱形图1" class="r1" onclick="Wc1()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="折线图1" class="r1" onclick="Wc2()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="饼形图1" class="r1" onclick="Wc3()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="柱形图2" class="r1" onclick="Wc4()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="折线图2" class="r1" onclick="Wc5()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="饼形图2" class="r1" onclick="Wc6()" style="background-color:blueviolet;color: aqua ;">
+                </span> 
+            </div>
+            <div class="new2"></div>
+        </div>
+        <div class="ck3">
+            <div class="top3">
+                前端技能掌握程度
+                <span onclick="FormHide3()" class="c1">X</span>
+                <span class="q1">
+                    <input type="button" value="柱形图1" class="r1" onclick="Wc1()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="折线图1" class="r1" onclick="Wc2()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="饼形图1" class="r1" onclick="Wc3()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="柱形图2" class="r1" onclick="Wc4()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="折线图2" class="r1" onclick="Wc5()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="饼形图2" class="r1" onclick="Wc6()" style="background-color:blueviolet;color: aqua ;">
+                </span> 
+            </div>
+            <div class="new3"></div>
+        </div>
+        <div class="ck4">
+            <div class="top4">
+                播放量变化曲线
+                <span onclick="FormHide4()" class="c1">X</span>
+                < <span class="q1">
+                    <input type="button" value="柱形图1" class="r1" onclick="Wc1()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="折线图1" class="r1" onclick="Wc2()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="饼形图1" class="r1" onclick="Wc3()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="柱形图2" class="r1" onclick="Wc4()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="折线图2" class="r1" onclick="Wc5()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="饼形图2" class="r1" onclick="Wc6()" style="background-color:blueviolet;color: aqua ;">
+                </span> 
+            </div>
+            <div class="new4"></div>
+        </div>
+        <div class="ck5">
+            <div class="top5">
+                地区分布占比
+                <span onclick="FormHide5()" class="c1">X</span>
+                <span class="q1">
+                    <input type="button" value="柱形图1" class="r1" onclick="Wc1()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="折线图1" class="r1" onclick="Wc2()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="饼形图1" class="r1" onclick="Wc3()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="柱形图2" class="r1" onclick="Wc4()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="折线图2" class="r1" onclick="Wc5()" style="background-color:blueviolet;color: aqua ;">
+                    <input type="button" value="饼形图2" class="r1" onclick="Wc6()" style="background-color:blueviolet;color: aqua ;">
+                </span> 
+            </div>
+            <div class="new5"></div>
+        </div>
+        <div class="column">
+            <div class="no">
+                <div class="no-hd">
+                    <ul>
+                        <li>125811</li>
+                        <li>1045634</li>
+                    </ul>
+                </div>
+                <div class="no-bd">
+                    <ul>
+                        <li>前端需求人数</li>
+                        <li>市场供应人数</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map">
+                <div class="map1"></div>
+                <div class="map2"></div>
+                <div class="map3"></div>
+                <div class="chart2"></div>
+
+            </div>
+        </div>
+        <div class="column">
+            <div  onclick="FormShow3()">
+            <div class="panel bar2">
+                <h2>柱形图-技能掌握 </h2>
+                <div class="chart">
+
+                </div>
+                <div class="panel-footer"></div>
+            </div>
+            </div>
+            <div  onclick="FormShow4()">
+            <div class="panel line2">
+                <h2>折线图-播放量
+                  
+                </h2>
+                <div class="chart">图表</div>
+                <div class="panel-footer"></div>
+            </div>
+            </div>
+            <div  onclick="FormShow5()">
+            <div class="panel pie2">
+                <h2>饼形图-地区分布
+                   
+                </h2>
+                <div class="chart">图表</div>
+                <div class="panel-footer"></div>
+            </div>
+            </div>
+    </section>
+    <script src="./js/jquary.js"></script>
+    <script src="./js/echarts.min.js"></script>
+    <script src="./js/china.js"></script>
+    <script src="./js/indexx.js"></script>
+    <script src="./js/indexx2.js"></script>
+    <script src="./js/shizuo.js"></script>
+</body>
+
+</html>

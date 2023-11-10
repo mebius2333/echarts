@@ -1,0 +1,42 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "user-select",
+          "-webkit-box-reflect",
+          "width: fit-content",
+          "height: fit-content"
+        ]
+      }
+    ],
+    "meta-viewport": "off",
+    "no-inline-styles": "off",
+    "button-type": "off",
+    "axe/text-alternatives": [
+      "default",
+      {
+        "image-alt": "off",
+        "document-title": "off"
+      }
+    ],
+    "axe/keyboard": [
+      "default",
+      {
+        "nested-interactive": "off"
+      }
+    ],
+    "disown-opener": "off",
+    "axe/forms": [
+      "default",
+      {
+        "label": "off",
+        "select-name": "off"
+      }
+    ]
+  }
+}
